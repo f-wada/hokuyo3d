@@ -14,7 +14,9 @@ add_compile_options(-std=c++11)
 include_directories(${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} include)
 
 add_executable(hokuyo3d src/hokuyo3d.cpp)
+add_executable(hokuyo_imu_to_livox_node src/imu_to_livox.cpp)
 target_link_libraries(hokuyo3d ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(hokuyo_imu_to_livox_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 if(CATKIN_ENABLE_TESTING)
   find_package(roslint REQUIRED)

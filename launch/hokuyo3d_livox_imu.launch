@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="ip_address" default="192.168.1.10" />
+  <arg name="basename" default="hokuyo3d"/>
+  <arg name="frame_id" default="$(arg basename)"/>
+
+<node pkg="$(arg basename)" type="$(arg basename)" name="$(arg basename)" required="true" output="screen">
+    <param name="ip" value="$(arg ip_address)" />
+    <param name="frame_id" value="$(arg frame_id)" />
+  </node>
+
+  <node pkg="hokuyo3d" type="hokuyo_imu_to_livox_node" name="hokuyo_imu_to_livox">
+  </node>
+
+
+</launch>
