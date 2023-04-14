@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="basename" default="hokuyo3d"/>
+  <arg name="node_1" default="$(arg basename)"/>
+  <arg name="node_2" default="$(arg basename)_2"/>
+  <arg name="ip_address1" default="192.168.0.10" />
+  <arg name="ip_address2" default="192.168.0.11" />
+  
+<!-- sensor1 -->
+  <node pkg="$(arg basename)" type="$(arg basename)" name="$(arg node_1)" required="true" output="screen" >
+    <param name="ip" value="$(arg ip_address1)" />
+    <param name="horizontal_interlace" value ="1" />
+    <param name="vertical_interlace" value ="1" />
+  </node>
+  
+<!-- sensor2 -->
+<!--
+  <node pkg="$(arg basename)" type="$(arg basename)" name="$(arg node_2)" required="true" output="screen" >
+    <param name="ip" value="$(arg ip_address2)" />
+    <param name="horizontal_interlace" value ="1" />
+    <param name="vertical_interlace" value ="1" />
+  </node>
+-->
+
+<!-- rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" required="true" output="screen" />
+
+</launch>
+
